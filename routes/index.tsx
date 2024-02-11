@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../pages/Home';
 import ReviewDetail from '../pages/ReviewDetail';
 import { NavigationContainer } from '@react-navigation/native';
+import { ReviewType } from '../types';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,7 @@ function Appstack() {
 
 export type RootStackParamList = {
     Home: undefined;
-    ReviewDetail: undefined;
+    ReviewDetail: { review: ReviewType };
 }
 
 export default Appstack;

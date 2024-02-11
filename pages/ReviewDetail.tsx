@@ -14,7 +14,7 @@ const ReviewDetail = ({ route, navigation }: Props) => {
 
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.title}>Review Detail Screen</Text>
+      <Text style={globalStyles.title}>{route.params.review.title}</Text>
       <Button title="Back to Home" onPress={handleHome} />
     </View>
   )
