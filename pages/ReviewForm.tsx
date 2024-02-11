@@ -5,16 +5,17 @@ import { Formik } from 'formik'
 import { Button } from 'react-native'
 import { ReviewType } from '../types'
 import * as yup from "yup";
+import { Text } from 'react-native'
 
 const ReviewSchema = yup.object({
   title: yup.string()
-    .required()
-    .min(4),
+    .required("Title is required")
+    .min(4, 'Title must be at least 4 characters'),
   body: yup.string()
-    .required()
-    .min(4),
+    .required("Body is required")
+    .min(8, 'Body must be at least 8 characters'),
   rating: yup.string()
-    .required()
+    .required("Rating is a required field")
     .test('is-num-1-5', 'Rating must be a number between 1 - 5', (val) => {
       return val && parseInt(val) > 0 && parseInt(val) < 6
     })
@@ -54,24 +55,39 @@ const ReviewForm = (props: {
               style={globalStyles.input}
               placeholder='Review title'
               onChangeText={props.handleChange('title')}
+              onBlur={props.handleBlur('title')}
               value={props.values.title}
             />
+            {props.touched.title && props.errors.title &&
+              <Text style={globalStyles.errorText}>
+                {props.errors.title}
+              </Text>}
 
             <TextInput
               multiline
               style={globalStyles.input}
               placeholder='Review body'
               onChangeText={props.handleChange('body')}
+              onBlur={props.handleBlur('body')}
               value={props.values.body}
             />
+            {props.touched.body && props.errors.body &&
+              <Text style={globalStyles.errorText}>
+                {props.errors.body}
+              </Text>}
 
             <TextInput
               style={globalStyles.input}
               placeholder='Rating (1-5)'
               onChangeText={props.handleChange('rating')}
+              onBlur={props.handleBlur('rating')}
               value={props.values.rating}
               keyboardType='numeric'
             />
+            {props.touched.rating && props.errors.rating &&
+              <Text style={globalStyles.errorText}>
+                {props.errors.rating}
+              </Text>}
 
             <Button title="Rate" color="maroon" onPress={() => props.handleSubmit()} />
           </View>
