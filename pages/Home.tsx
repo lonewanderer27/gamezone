@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import React, { useId, useState } from 'react'
 import { globalStyles } from '../styles/global'
-import { Button } from 'react-native'
+import { Button, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import type { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../routes/home';
 import { FlatList, TouchableOpacity } from 'react-native';
@@ -39,15 +39,17 @@ const Home = ({ navigation }: Props) => {
     <View style={globalStyles.container}>
 
       <Modal visible={modalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="close"
-            size={24}
-            onPress={() => setModalOpen(false)}
-            style={{...styles.modalToggle, ...styles.modalClose}}
-          />
-          <ReviewForm addReview={handleAddReview} />
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="close"
+              size={24}
+              onPress={() => setModalOpen(false)}
+              style={{ ...styles.modalToggle, ...styles.modalClose }}
+            />
+            <ReviewForm addReview={handleAddReview} />
+          </View>
+        </TouchableWithoutFeedback>
       </Modal>
 
       <MaterialIcons
