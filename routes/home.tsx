@@ -15,7 +15,7 @@ function HomeStack() {
             },
             headerTintColor: '#444',
         }}>
-            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Home" component={Home} options={{headerTitle: "GameZone"}} />
             <Stack.Screen name="ReviewDetail" component={ReviewDetail} />
         </Stack.Navigator>
     );

@@ -10,7 +10,7 @@ function TabsNav() {
         <Tab.Navigator screenOptions={{
             headerShown: false
         }}>
-            <Tab.Screen name="Home" component={HomeStack} />
+            <Tab.Screen name="GameZone" component={HomeStack} />
             <Tab.Screen name="About" component={AboutStack} />
         </Tab.Navigator>
     )
