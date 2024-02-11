@@ -6,6 +6,7 @@ import { Button } from 'react-native'
 import { ReviewType } from '../types'
 import * as yup from "yup";
 import { Text } from 'react-native'
+import FlatButton from '../components/FlatButton'
 
 const ReviewSchema = yup.object({
   title: yup.string()
@@ -65,6 +66,7 @@ const ReviewForm = (props: {
 
             <TextInput
               multiline
+              numberOfLines={4}
               style={globalStyles.input}
               placeholder='Review body'
               onChangeText={props.handleChange('body')}
@@ -89,7 +91,7 @@ const ReviewForm = (props: {
                 {props.errors.rating}
               </Text>}
 
-            <Button title="Rate" color="maroon" onPress={() => props.handleSubmit()} />
+            <FlatButton text="Rate" onPress={() => props.handleSubmit()} />
           </View>
         )}
       </Formik>
