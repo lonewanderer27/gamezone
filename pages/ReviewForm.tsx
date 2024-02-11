@@ -4,6 +4,21 @@ import { globalStyles } from '../styles/global'
 import { Formik } from 'formik'
 import { Button } from 'react-native'
 import { ReviewType } from '../types'
+import * as yup from "yup";
+
+const ReviewSchema = yup.object({
+  title: yup.string()
+    .required()
+    .min(4),
+  body: yup.string()
+    .required()
+    .min(4),
+  rating: yup.string()
+    .required()
+    .test('is-num-1-5', 'Rating must be a number between 1 - 5', (val) => {
+      return val && parseInt(val) > 0 && parseInt(val) < 6
+    })
+})
 
 const ReviewForm = (props: {
   addReview: (review: ReviewType) => void
@@ -16,6 +31,7 @@ const ReviewForm = (props: {
           body: '',
           rating: ''
         }}
+        validationSchema={ReviewSchema}
         onSubmit={(values, actions) => {
           // log the values
           console.log(values)
