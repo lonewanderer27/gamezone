@@ -7,10 +7,15 @@ import { ReviewType } from '../types';
 
 const Stack = createStackNavigator();
 
-function Appstack() {
+function HomeStack() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Home'>
+            <Stack.Navigator initialRouteName='Home' screenOptions={{
+                headerStyle: {
+                    backgroundColor: '#eee',
+                },
+                headerTintColor: '#444',
+            }}>
                 <Stack.Screen name="Home" component={Home} />
                 <Stack.Screen name="ReviewDetail" component={ReviewDetail} />
             </Stack.Navigator>
@@ -23,4 +28,4 @@ export type RootStackParamList = {
     ReviewDetail: { review: ReviewType };
 }
 
-export default Appstack;
+export default HomeStack;

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { globalStyles } from '../styles/global'
 import { Button } from 'react-native'
 import type { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../routes';
+import { RootStackParamList } from '../routes/home';
 import { FlatList, TouchableOpacity } from 'react-native';
 import { ReviewType } from '../types';
 

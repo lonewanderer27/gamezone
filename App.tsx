@@ -1,6 +1,6 @@
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito'
 import * as SplashScreen from "expo-splash-screen";
-import Appstack from './routes';
+import HomeStack from './routes/home';
 
 // Prevent native splash screen from autohiding before App component declaration
 SplashScreen.preventAutoHideAsync();
@@ -17,6 +17,6 @@ export default function App() {
   }
 
   return (
-    <Appstack />
+    <HomeStack />
   );
 }

@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { globalStyles } from '../styles/global'
 import { Button } from 'react-native'
-import { RootStackParamList } from '../routes';
+import { RootStackParamList } from '../routes/home';
 import { StackScreenProps } from '@react-navigation/stack';
 
 type Props = StackScreenProps<RootStackParamList, 'ReviewDetail'>;
